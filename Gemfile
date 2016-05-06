@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'monologue'
-gem "monologue_image_upload", :git => "git@github.com:msevestre/monologue_image_upload.git"
+gem "monologue_image_upload", :git => "git@github.com:vodkaiserz/monologue_image_upload.git"
 gem 'jquery-turbolinks', '~> 2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
