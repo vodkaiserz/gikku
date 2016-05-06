@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
+  get 'search' => 'search#index'
+  get '/profilepages/:id' => 'profilepages#show', as: :profilepages
 # This line mounts Monologue's routes at the root of your application.
 # This means, any requests to URLs such as /my-post, will go to Monologue::PostsController.
 # If you would like to change where this engine is mounted, simply change the :at option to something different.

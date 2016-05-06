@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506043805) do
+ActiveRecord::Schema.define(version: 20160506135841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "category_name"
+    t.string   "image"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -31,6 +38,13 @@ ActiveRecord::Schema.define(version: 20160506043805) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.string   "event_name"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "monologue_posts", force: :cascade do |t|
     t.boolean  "published"
@@ -67,32 +81,16 @@ ActiveRecord::Schema.define(version: 20160506043805) do
     t.datetime "updated_at"
   end
 
-  create_table "wellspring_entries", force: :cascade do |t|
-    t.string   "type"
-    t.string   "title"
-    t.string   "slug"
-    t.json     "payload"
-    t.integer  "user_id"
-    t.string   "author_name"
-    t.datetime "published_at"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "wellspring_entries", ["slug"], name: "index_wellspring_entries_on_slug", using: :btree
-  add_index "wellspring_entries", ["type"], name: "index_wellspring_entries_on_type", using: :btree
-  add_index "wellspring_entries", ["user_id"], name: "index_wellspring_entries_on_user_id", using: :btree
-
-  create_table "wellspring_entry_search_data", force: :cascade do |t|
-    t.integer  "entry_id"
-    t.string   "attr_name"
-    t.tsvector "search_data"
-    t.text     "raw_data"
+  create_table "profilepages", force: :cascade do |t|
+    t.string   "stage_name"
+    t.string   "image"
+    t.string   "bio"
+    t.integer  "category_id"
+    t.integer  "event_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "wellspring_entry_search_data", ["entry_id"], name: "index_wellspring_entry_search_data_on_entry_id", using: :btree
-  add_index "wellspring_entry_search_data", ["search_data"], name: "idx_search_data", using: :gin
+  add_index "profilepages", ["event_id"], name: "index_profilepages_on_event_id", using: :btree
 
 end
