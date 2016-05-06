@@ -1,7 +1,7 @@
 Monologue.config do |config|
   config.site_name = "Gikku blog"
   config.site_subtitle = "The Next Gig Thing"
-  config.site_url = "http://www.gikku.co.id/blog"
+  config.site_url = "http://gikku.herokuapp.com/blog"
 
   config.meta_description = "This is my blog about..."
   config.meta_keyword = "music, fun"
