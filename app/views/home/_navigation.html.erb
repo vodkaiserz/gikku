@@ -17,8 +17,16 @@
         <li class="hidden"><a href="#page-top"></a></li>
         <li><a class="page-scroll" href="#about">Tentang Gikku</a></li>
         <li><a class="page-scroll" href="#howitworks">Cara Kerja</a></li>
-        <li><a class="page-scroll" href="/blog">News</a></li>
+        <li><a class="page-scroll" href="/blog">Blog</a></li>
+        <% if user_signed in? %>
+          <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+          <li><%= link_to 'Log Out', destroy_user_session_path,method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Login', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', New_user_registration_path %></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
