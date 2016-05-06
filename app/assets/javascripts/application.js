@@ -15,6 +15,7 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require js/bootstrap.min
+//= require ckeditor/ckeditor-config
 //= require cbpAnimatedHeader
 //= require classie
 //= require creative
