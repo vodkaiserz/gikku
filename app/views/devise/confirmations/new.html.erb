@@ -7,13 +7,15 @@
 
   <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control' %>
+    <%= f.email_field :email, autofocus: true, class:'form-control', value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Resend confirmation instructions", class: 'btn btn-primary' %>
+    <%= f.submit "Resend confirmation instructions", class:'btn btn-primary' %>
   </div>
 <% end %>
-</div>
-<div class="panel-footer"><%= render "devise/shared/links" %></div>
+ </div>
+  <div class="panel-footer">
+<%= render "devise/shared/links" %>
+  </div>
 </div>

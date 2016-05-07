@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Profilepages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stage name</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profilepages.each do |profilepage| %>
+      <tr>
+        <td><%= profilepage.stage_name %></td>
+        <td><%= profilepage.image %></td>
+        <td><%= link_to 'Show', profilepage %></td>
+        <td><%= link_to 'Edit', edit_profilepage_path(profilepage) %></td>
+        <td><%= link_to 'Destroy', profilepage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Profilepage', new_profilepage_path %>
